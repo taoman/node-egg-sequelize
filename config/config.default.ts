@@ -15,7 +15,8 @@ export default (appInfo: EggAppInfo) => {
     username: 'root',
     password: '123456',
     port: 3306,
-    database: 'egg-sequelize-doc-default',
+    // database: 'egg-sequelize-doc-default',
+    database: 'basicBase',
   };
   config.security = {
     domainWhiteList: [

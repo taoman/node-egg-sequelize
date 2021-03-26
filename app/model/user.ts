@@ -9,10 +9,18 @@ import { Application } from 'egg';
 // user模型
 module.exports = (app:Application) => {
   const { STRING, INTEGER, DATE } = app.Sequelize;
-  const User = app.model.define('users', {
+  // const User = app.model.define('users', {
+  //   id: { type: INTEGER, primaryKey: true, autoIncrement: true },
+  //   title: STRING(50),
+  //   name: STRING(30),
+  //   type_id: INTEGER,
+  //   created_at: DATE(6),
+  //   updated_at: DATE(6),
+  // },
+  const User = app.model.define('leavemessage', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-    title: STRING(50),
-    name: STRING(30),
+    message: STRING(200),
+    name: STRING(50),
     type_id: INTEGER,
     created_at: DATE(6),
     updated_at: DATE(6),

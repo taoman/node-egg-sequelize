@@ -11,12 +11,12 @@ export default (appInfo: EggAppInfo) => {
   config.middleware = [];
   config.sequelize = {
     dialect: 'mysql',
-    host: 'localhost',
+    // host: '8.136.145.178',
+    host: '127.0.0.1',
     username: 'root',
     password: '123456',
     port: 3306,
     database: 'egg-sequelize-doc-default',
-    // database: 'basicbase',
   };
   config.security = {
     domainWhiteList: [

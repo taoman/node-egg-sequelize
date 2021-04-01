@@ -11,7 +11,6 @@ export default (appInfo: EggAppInfo) => {
   config.middleware = [];
   config.sequelize = {
     dialect: 'mysql',
-    // host: '8.136.145.178',
     host: '127.0.0.1',
     username: 'root',
     password: '123456',

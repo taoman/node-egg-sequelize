@@ -25,6 +25,8 @@ const routes = function(controller) {
     new Router('delete', '/destory/:id', controller.user.destory),
     new Router('patch', '/update/:id', controller.user.update),
     new Router('get', '/config', controller.config.ConfigIndex),
+    new Router('post', '/login', controller.login.login),
+
   ];
 };
 module.exports = {

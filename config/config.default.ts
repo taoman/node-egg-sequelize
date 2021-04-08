@@ -37,6 +37,17 @@ export default (appInfo: EggAppInfo) => {
     credentials: true,
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
   };
+  // 设置密钥
+  config.jwt = {
+    secret: 'dsaldkjl;sakjdl;jasfkl;sakl;fl;m',
+  };
+  // 不需要token验证的路由
+  // config.routerAuth = [ '/login' ];
+  config.auth = {
+    ignore: [ '/login' ],
+  };
+  // 挂载中间件
+  config.middleware = [ 'auth' ];
   // 添加日志级别为debug
   config.logger = {
     level: 'DEBUG',

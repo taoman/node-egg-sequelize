@@ -3,7 +3,7 @@
  * @Author: taoman
  * @Date: 2021-02-07 15:09:33
  * @LastEditors: taoman
- * @LastEditTime: 2021-02-22 16:31:53
+ * @LastEditTime: 2021-04-07 16:02:03
  */
 import { Controller } from 'egg';
 // function parseInt(str: string | number) {
@@ -20,7 +20,7 @@ export default class UserController extends Controller {
     // };
     ctx.body = {
       status: 200,
-      mesg: '列表请求成功',
+      msg: '列表请求成功',
       data: await ctx.service.user.index(),
     };
   }

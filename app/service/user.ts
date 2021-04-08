@@ -3,7 +3,7 @@
  * @Author: taoman
  * @Date: 2021-02-07 15:11:44
  * @LastEditors: taoman
- * @LastEditTime: 2021-02-23 11:52:53
+ * @LastEditTime: 2021-04-02 10:51:47
  */
 import { Service } from 'egg';
 // import { Code } from '../utils/util';
@@ -35,7 +35,6 @@ export default class UserService extends Service {
   async show() {
     const { ctx } = this;
     const id = toInt(ctx.params.id);
-    console.log('id', id);
     const user = await ctx.model.User.findByPk(id);
     if (!user) {
       this.ctx.throw(404, 'user not found');

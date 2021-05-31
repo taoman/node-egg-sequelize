@@ -3,7 +3,7 @@
  * @Author: taoman
  * @Date: 2021-02-07 15:09:33
  * @LastEditors: taoman
- * @LastEditTime: 2021-04-07 16:02:03
+ * @LastEditTime: 2021-04-16 13:58:00
  */
 import { Controller } from 'egg';
 // function parseInt(str: string | number) {
@@ -32,23 +32,23 @@ export default class UserController extends Controller {
     const { ctx } = this;
     await ctx.service.user.create();
     ctx.body = {
-      // status: 200,
+      status: 200,
       msg: '创建成功',
     };
   }
   async destory() {
     const { ctx } = this;
-    await ctx.service.user.destroy().then(res => {
-      console.log(res);
-      ctx.body = {
-        msg: '删除成功',
-      };
-    });
+    await ctx.service.user.destroy();
+    ctx.body = {
+      status: 200,
+      msg: '删除成功',
+    };
   }
   async update() {
     const { ctx } = this;
     await ctx.service.user.update();
     ctx.body = {
+      status: 200,
       msg: '更新成功',
     };
   }

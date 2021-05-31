@@ -3,7 +3,7 @@
  * @Author: taoman
  * @Date: 2021-02-07 15:11:44
  * @LastEditors: taoman
- * @LastEditTime: 2021-04-02 10:51:47
+ * @LastEditTime: 2021-04-21 16:22:18
  */
 import { Service } from 'egg';
 // import { Code } from '../utils/util';
@@ -20,15 +20,16 @@ export default class UserService extends Service {
 //       data: res,
 //     });
 //   }
+
   async index() {
     const page = 1,
       count = 10;
     const { ctx } = this;
-    const list = await this.ctx.model.User.findAndCountAll({
+    const list = await this.ctx.model.User.findAll({
       include: [{ model: ctx.model.Type, as: 'types' }],
       offset: (page - 1) * count,
-      // limit: count,
       order: [[ 'id', 'DESC' ]],
+      attributes: [ 'id', 'title', 'name', 'img_url', 'type_id' ],
     });
     return list;
   }
@@ -44,9 +45,8 @@ export default class UserService extends Service {
 
   async create() {
     const ctx = this.ctx;
-    // const { name, age } = ctx.request.body;
-    const user = await ctx.model.User.create(ctx.request.body);
-    // ctx.status = 201;
+    const { title, name } = ctx.request.body;
+    const user = await ctx.model.User.create({ title, name });
     ctx.body = user;
   }
 
@@ -54,7 +54,6 @@ export default class UserService extends Service {
     const ctx = this.ctx;
     const id = toInt(ctx.params.id);
     const user = await ctx.model.User.findByPk(id);
-    console.log('user', user);
     if (!user) {
       ctx.status = 404;
       return;
@@ -72,7 +71,6 @@ export default class UserService extends Service {
       return;
     }
     await user.destroy();
-    // ctx.status = 200;
   }
 
 

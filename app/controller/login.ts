@@ -3,7 +3,7 @@
  * @Author: taoman
  * @Date: 2021-04-02 11:02:46
  * @LastEditors: taoman
- * @LastEditTime: 2021-04-07 16:14:00
+ * @LastEditTime: 2021-04-16 11:27:21
  */
 import { Controller } from 'egg';
 export default class LoginController extends Controller {
@@ -14,7 +14,7 @@ export default class LoginController extends Controller {
     if (result.length > 0) {
       const token = app.jwt.sign({
         username,
-      }, app.config.jwt.secret, { expiresIn: '10m' });
+      }, app.config.jwt.secret, { expiresIn: '24h' });
 
       ctx.set({ token });
       ctx.body = {
